@@ -49,24 +49,24 @@ describe(DiyHash) do
       expect(test_hash.length).to(eq(3))
     end
   end
-  #
-  # describe("merge") do
-  #   it("returns a combined hash from two hashes") do
-  #     test_hash = DiyHash.new()
-  #     test_hash.store("kitten", "cute")
-  #     test_hash.store("dog", "rule")
-  #     test_hash_2 = DiyHash.new()
-  #     test_hash_2.store("pig", "ugly")
-  #     test_hash_2.store("monkey", "silly")
-  #     test_hash_3 = DiyHash.new()
-  #     test_hash_3 = test_hash.merge(test_hash_2)
-  #     test_hash_4 = DiyHash.new()
-  #     test_hash_4.store("kitten", "cute")
-  #     test_hash_4.store("dog", "rule")
-  #     test_hash_4.store("pig", "ugly")
-  #     test_hash_4.store("monkey", "silly")
-  #   #  binding.pry
-  #     expect(test_hash.merge(test_hash_2)).to(eq(test_hash_4))
-  #   end
-  # end
+
+  describe("merge") do
+    it("returns a combined hash from two hashes") do
+      test_hash = DiyHash.new()
+      test_hash.store("kitten", "cute")
+      test_hash.store("dog", "rule")
+      test_hash_2 = DiyHash.new()
+      test_hash_2.store("pig", "ugly")
+      test_hash_2.store("monkey", "silly")
+      test_hash_3 = DiyHash.new()
+      test_hash_3 = test_hash.merge(test_hash_2)
+      test_hash_4 = DiyHash.new()
+      test_hash_4.store("kitten", "cute")
+      test_hash_4.store("dog", "rule")
+      test_hash_4.store("pig", "ugly")
+      test_hash_4.store("monkey", "silly")
+    #  binding.pry
+      expect(test_hash.merge(test_hash_2)) == test_hash_4
+    end
+  end
 end
