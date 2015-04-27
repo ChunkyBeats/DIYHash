@@ -14,6 +14,10 @@ class DiyHash
     return @storage_array
   end
 
+   define_method(:dump_it) do
+     return @storage_array
+   end
+
    define_method(:fetch) do |fetch_key|
      searchedkeyarray = @storage_array.assoc(fetch_key)
      fetch_value = searchedkeyarray[1]
@@ -45,7 +49,8 @@ class DiyHash
       @storage_array.each do |subarray|
         temporary_array.push(subarray)
       end
-      diy_hash_to_add.instance_variable_get(:@storage_array).each() do |subarray|
+    # old code is hack-y and ugly so it is now rewritten below: diy_hash_to_add.instance_variable_get(:@storage_array).each() do |subarray|
+      diy_hash_to_add.dump_it.each() do |subarray|
         temporary_array.push(subarray)
       end
      output_diy_hash = DiyHash.new()
