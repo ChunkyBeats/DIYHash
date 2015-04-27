@@ -12,7 +12,39 @@ class DiyHash
    define_method(:fetch) do |fetch_key|
      searchedkeyarray = @storage_array.assoc(fetch_key)
      fetch_value = searchedkeyarray[1]
-    #binding.pry
     end
+
+    define_method(:has_key?) do |fetch_key|
+      if searchedkeyarray = @storage_array.assoc(fetch_key)
+        true
+      else
+        false
+      end
+    end
+
+    define_method(:has_value?) do |fetch_value|
+      if @storage_array.rassoc(fetch_value)
+        true
+      else
+        false
+      end
+    end
+
+    define_method(:length) do
+      @storage_array.count()
+    end
+
+#     define_method(:merge) do |diy_hash_to_add|
+#       #@storage_array = self + array_to_add)
+#       temporary_array = []
+#       @storage_array.each do |subarray|
+#         temporary_array.push(subarray)
+#       end
+#       diy_hash_to_add.instance_variable_get(:@storage_array).each() do |subarray|
+#         temporary_array.push(subarray)
+#       end
+#      temporary_array
+# #binding.pry
+#     end
 
 end
